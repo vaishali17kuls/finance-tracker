@@ -10,14 +10,18 @@
     </tr>
   </thead>
   <tbody>
-    <% @user_stocks.each do |u_stock| %>
+    <% @user_stocks.each do |user_stock| %>
     <tr>
-      <td><%= u_stock.name %></td>
-      <td><%= u_stock.ticker %></td>
-      <td><%= u_stock.price %></td>
+      <td><%= user_stock.name %></td>
+      <td><%=user_stock.ticker %></td>
+      <td><%= user_stock.price %></td>
       <% if @user.id == current_user.id %>
       <td>
-      <%= link_to 'Delete',user_stock_path(u_stock),:method => :delete,:data => { :confirm => 'Are you sure?' },:class => 'btn btn-xs btn-danger' %>
+      <%= link_to 'Delete',
+      user_stock_path(user_stock),
+      :method => :delete,
+      :data => { :confirm => 'Are you sure?' },
+      :class => 'btn btn-xs btn-danger' %>
       </td>
       <% end %>
     </tr>
